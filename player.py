@@ -6,3 +6,6 @@ class Player:
 
         self.name = name
         self.sign = sign
+
+    def make_a_move(self, move):
+        pass

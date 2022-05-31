@@ -8,8 +8,7 @@ class Board:
         
     
     def __str__(self):
-        return """
- {} | {} | {}
+        return """ {} | {} | {}
 ———————————
  {} | {} | {}
 ———————————
@@ -19,10 +18,10 @@ class Board:
     def __repr__(self):
         return f"Board({self.__state})"
 
-    def update(self, move: int, sign):
+    def update(self, move, sign):
         if not self.is_move_legal(move):
             return False
-        self.__state[move - 1] = sign
+        self.__state[int(move) - 1] = sign
         return True
 
     def is_game_over(self, sign):
@@ -31,7 +30,11 @@ class Board:
                 return True
         return False
 
-    def is_move_legal(self, move: int):
+    def is_move_legal(self, move):
+        try:
+            move = int(move)
+        except ValueError:
+            return False
         if move in range(1, 10) and self.__state[move - 1] == '_':
             return True
         return False

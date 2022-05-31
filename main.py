@@ -1,16 +1,22 @@
+import os
 from board import Board
 from game import Game
+from player import Player
 
 def main():
+    os.system("cls||clear")
     print("""Welcome to Command Line Tic-Tac-Toe!
 You already know the rules right?\n""")
     print(Game.instructions())
-    board1 = Board()
-    print(board1)
-    board1.state[2], board1.state[4], board1.state[6] = "x", "x", "x"
-    print(board1)
-    print(board1.is_game_over('x'))
-    print(board1.is_move_legal(21))
+
+    board = Board()
+    player_name = input("What's the name of the first player: ")
+    player1 = Player(player_name, "x")
+    player_name = input("What's the name of the second player: ")
+    player2 = Player(player_name, "o")
+
+    game = Game(player1, player2, board)
+    game.play()
 
 if __name__ == "__main__":
     main()

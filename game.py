@@ -5,7 +5,9 @@ class Game:
         self.board = board
 
     def play(self):
-        pass
+        is_winner_chosen = False
+        while not is_winner_chosen:
+            pass
 
     @staticmethod
     def instructions():

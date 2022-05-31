@@ -1,3 +1,4 @@
+from board import Board
 
 class Player:
     def __init__(self, name: str, sign: chr):
@@ -7,5 +8,5 @@ class Player:
         self.name = name
         self.sign = sign
 
-    def make_a_move(self, move):
-        pass
+    def make_a_move(self, move, board):
+        board.state[move - 1] = "X"

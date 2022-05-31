@@ -3,7 +3,7 @@ class Board:
     def __init__(self):
         self.state = ['_' for x in range(9)]
     
-    def print_board(self):
+    def __str__(self):
         return """
  {} | {} | {}
 ———————————
@@ -12,8 +12,15 @@ class Board:
  {} | {} | {}
         """.format(*self.state)
 
-    def isGameOver(self, sign):
+    def is_game_over(self, sign):
         for combo in self.WINNING_COMBOS:
             if self.state[combo[0]] == self.state[combo[1]] == self.state[combo[2]] == sign:
                 return True
+        return False
+
+
+
+    def is_move_legal(self, move):
+        if move in range(1, 10) and self.state[move - 1] == '_':
+            return True
         return False
